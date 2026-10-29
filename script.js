@@ -20,7 +20,7 @@ function getComputerChoice(){
 }
 
 function getPlayerChoice(){
-    let humanChoice = prompt("Let's play rock paper scissor! Enter your choice :");
+    let humanChoice = prompt("Let's play rock paper scissor in the console! Enter your choice :");
     console.log("You chooses : " + humanChoice);
     return humanChoice;
 }
