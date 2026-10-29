@@ -8,29 +8,29 @@ function getComputerChoice(){
     
     switch (choiceNum) {
         case 0 :
+            console.log("PC chooses : rock");
             return "rock";
         case 1 :
+            console.log("PC chooses : paper");
             return "paper";
         case 2 : 
+            console.log("PC chooses : scissor");
             return "scissor";
     }
-    
-    // console.log(choiceNum);
-    // console.log(pcChoice);
 }
 
 function getPlayerChoice(){
-    let humanChoice = prompt("Let's play rock paper scissors! Enter your choice :");
+    let humanChoice = prompt("Let's play rock paper scissor! Enter your choice :");
+    console.log("You chooses : " + humanChoice);
     return humanChoice;
-    // console.log(humanChoice);
 }
 
-function playRound(pc,human){
-    if ((pc.toUpperCase() == "ROCK") && (human.toUpperCase() == "SCISSORS")){
+function playRound(human,pc){
+    if ((pc.toUpperCase() == "ROCK") && (human.toUpperCase() == "SCISSOR")){
         pcScore++;
         console.log("Take the L, rock beat scissors!");
     }
-    else if ((pc.toUpperCase() == "SCISSORS") && (human.toUpperCase() == "PAPER")){
+    else if ((pc.toUpperCase() == "SCISSOR") && (human.toUpperCase() == "PAPER")){
         pcScore++;
         console.log("Take the L, scissors beat paper!");
     }
@@ -38,11 +38,11 @@ function playRound(pc,human){
         pcScore++;
         console.log("Take the L, paper beat rock!");
     }
-    else if ((human.toUpperCase() == "ROCK") && (pc.toUpperCase() == "SCISSORS")){
+    else if ((human.toUpperCase() == "ROCK") && (pc.toUpperCase() == "SCISSOR")){
         humanScore++;
         console.log("Respect, scissors beat rock!");
     }
-    else if ((human.toUpperCase() == "SCISSORS") && (pc.toUpperCase() == "PAPER")){
+    else if ((human.toUpperCase() == "SCISSOR") && (pc.toUpperCase() == "PAPER")){
         pcScore++;
         console.log("Respect, paper beat scissors!");
     }
@@ -54,4 +54,4 @@ function playRound(pc,human){
         console.log("It's a tie!");
 }
 
-playRound(getComputerChoice(),getPlayerChoice());
+playRound(getPlayerChoice(),getComputerChoice());
