@@ -34,21 +34,21 @@ function playRound(human,pc){
         pcScore++;
         console.log("Take the L, scissors beat paper!");
     }
-    else if ((pc.toUpperCase() == "PAPER") && (human.toUpperCase() == "ROCKS")){
+    else if ((pc.toUpperCase() == "PAPER") && (human.toUpperCase() == "ROCK")){
         pcScore++;
         console.log("Take the L, paper beat rock!");
     }
     else if ((human.toUpperCase() == "ROCK") && (pc.toUpperCase() == "SCISSOR")){
         humanScore++;
-        console.log("Respect, scissors beat rock!");
+        console.log("Respect, rock beat scissor!");
     }
     else if ((human.toUpperCase() == "SCISSOR") && (pc.toUpperCase() == "PAPER")){
         pcScore++;
-        console.log("Respect, paper beat scissors!");
+        console.log("Respect, scissor beat paper!");
     }
-    else if ((human.toUpperCase() == "PAPER") && (pc.toUpperCase() == "ROCKS")){
+    else if ((human.toUpperCase() == "PAPER") && (pc.toUpperCase() == "ROCK")){
         pcScore++;
-        console.log("Respect, rock beat paper!");
+        console.log("Respect, paper beat rock!");
     }
     else
         console.log("It's a tie!");
