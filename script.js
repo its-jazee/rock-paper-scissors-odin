@@ -1,5 +1,3 @@
-// let pcChoice = null;
-// let humanChoice = null;
 let pcScore = 0;
 let humanScore = 0;
 
@@ -54,4 +52,4 @@ function playRound(human,pc){
         console.log("It's a tie!");
 }
 
-playRound(getPlayerChoice(),getComputerChoice());
+// playRound(getPlayerChoice(),getComputerChoice());
