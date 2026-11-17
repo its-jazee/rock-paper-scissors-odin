@@ -1,55 +1,78 @@
-let pcScore = 0;
-let humanScore = 0;
+let pcScore = document.querySelector("#pcScore");
+let humanScore = document.querySelector("#humanScore");
+let rockBtn = document.querySelector("#rockBtn");
+let paperBtn = document.querySelector("#paperBtn");
+let scissorBtn = document.querySelector("#scissorBtn");
+let pcChoice = document.querySelector("#pcChoice");
+let winner = document.querySelector("#winner");
+let reset = document.querySelector("#reset");
+
+let pcMark = 0;
+let humanMark = 0;
 
 function getComputerChoice(){
     let choiceNum = Math.floor(Math.random() * 3);
     
     switch (choiceNum) {
         case 0 :
-            console.log("PC chooses : rock");
-            return "rock";
+            pcChoice.textContent = "PC chooses : rock";
+            return "ROCK";
         case 1 :
-            console.log("PC chooses : paper");
-            return "paper";
+            pcChoice.textContent = "PC chooses : paper";
+            return "PAPER";
         case 2 : 
-            console.log("PC chooses : scissor");
-            return "scissor";
+            pcChoice.textContent = "PC chooses : scissor";
+            return "SCISSOR";
     }
 }
 
-function getPlayerChoice(){
-    let humanChoice = prompt("Let's play rock paper scissor in the console! Enter your choice :");
-    console.log("You chooses : " + humanChoice);
-    return humanChoice;
+function playRound(human, pc){
+    if ((pc == "ROCK") && (human == "SCISSOR") ||
+        (pc == "SCISSOR") && (human == "PAPER") ||
+        (pc == "PAPER") && (human == "ROCK")) {        
+        pcMark++;
+        pcScore.textContent = pcMark;
+    }
+    else if ((human == "ROCK") && (pc == "SCISSOR") ||
+            (human == "SCISSOR") && (pc == "PAPER") ||
+            (human == "PAPER") && (pc == "ROCK")) {        
+        humanMark++;
+        humanScore.textContent = humanMark;
+    }
+
+    if (humanMark == 5){
+        winner.textContent = "BROO LETS GOO YOU WONN";
+        resetGame();
+    }
+    else if (pcMark == 5){
+        winner.textContent = "aint no way the pc won :sob:";
+        resetGame();
+    }
 }
 
-function playRound(human,pc){
-    if ((pc.toUpperCase() == "ROCK") && (human.toUpperCase() == "SCISSOR")){
-        pcScore++;
-        console.log("Take the L, rock beat scissors!");
-    }
-    else if ((pc.toUpperCase() == "SCISSOR") && (human.toUpperCase() == "PAPER")){
-        pcScore++;
-        console.log("Take the L, scissors beat paper!");
-    }
-    else if ((pc.toUpperCase() == "PAPER") && (human.toUpperCase() == "ROCK")){
-        pcScore++;
-        console.log("Take the L, paper beat rock!");
-    }
-    else if ((human.toUpperCase() == "ROCK") && (pc.toUpperCase() == "SCISSOR")){
-        humanScore++;
-        console.log("Respect, rock beat scissor!");
-    }
-    else if ((human.toUpperCase() == "SCISSOR") && (pc.toUpperCase() == "PAPER")){
-        pcScore++;
-        console.log("Respect, scissor beat paper!");
-    }
-    else if ((human.toUpperCase() == "PAPER") && (pc.toUpperCase() == "ROCK")){
-        pcScore++;
-        console.log("Respect, paper beat rock!");
-    }
-    else
-        console.log("It's a tie!");
+function resetGame(){
+    let resetBtn = document.createElement("button");
+    resetBtn.textContent = "Reset Game";
+    
+    reset.appendChild(resetBtn);
+
+    resetBtn.addEventListener("click", (e) => {
+        location.reload();
+    });
+
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorBtn.disabled = true;
 }
 
-// playRound(getPlayerChoice(),getComputerChoice());
+rockBtn.addEventListener('click',(event) => {
+    playRound("ROCK",getComputerChoice());
+})
+
+paperBtn.addEventListener('click',(event) => {
+    playRound("PAPER",getComputerChoice());
+})
+
+scissorBtn.addEventListener('click',(event) => {
+    playRound("SCISSOR",getComputerChoice());
+})

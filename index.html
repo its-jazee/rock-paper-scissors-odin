@@ -9,10 +9,15 @@
 <body>
     <h1>Let's Play Rock Paper Scissors!</h1>
     <p>Pick your choice. You will be playing against the computer.</p>
-    <div class="button-box"><button>Rock</button><button>Paper</button><button>Scissors</button></div>
-    <h3>SCORES</h3>
-    <h3 id="score">PC : 0 You : 0</h3>
+    <div class="button-box">
+        <button id="rockBtn">Rock</button>
+        <button id="paperBtn">Paper</button>
+        <button id="scissorBtn">Scissors</button>
+    </div>
+    <div id="pcChoice"></div>
+    <h3>PC : <span id="pcScore">0</span> You : <span id="humanScore">0</span></h3>
     <h2 id="winner">The one to get to 5 first wins!</h2>
+    <div id="reset"></div>
     <script src="script.js"></script>
 </body>
 </html>

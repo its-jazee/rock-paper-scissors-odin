@@ -8,4 +8,5 @@ body{
 .button-box{
     display: flex;
     gap: 10px;
+    padding-bottom: 15px;
 }
